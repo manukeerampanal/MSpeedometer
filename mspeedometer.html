@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <!-- Check out the source code on http://github.com/manukeerampanal/MSpeedometer -->
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <link rel="stylesheet" type="text/css" href="mspeedometer.css" media="screen" />
+        <script type="text/javascript" src="xcanvas.js"></script>
+        <script type="text/javascript" src="tbe.js"></script>
+        <script type="text/javascript" src="digitaldisplay.js"></script>
+        <script type="text/javascript" src="mspeedometer.js"></script>
+        <script type="text/javascript" src="themes/default.js"></script>
+        <script type="text/javascript" src="themes/mcust_theme.js"></script>
+        <script type="text/javascript" src="themes/kitsch.js"></script>
+        <script type="text/javascript" src="cust_animation.js"></script>
+        <script type="text/javascript">
+          var mspeedometer1,mspeedometer2,mspeedometer3,mspeedometer4,mspeedometer5;
+            document.addEventListener ("DOMContentLoaded", function() {
+                document.removeEventListener ("DOMContentLoaded", arguments.callee, false);
+                mspeedometer1 = new MSpeedometer('mspeedometer1', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 35,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "08:00 AM - 09:00 AM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer2 = new MSpeedometer('mspeedometer2', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 20,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "09:00 AM - 10:00 AM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer3 = new MSpeedometer('mspeedometer3', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 45,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "10:00 AM - 11:00 AM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer4 = new MSpeedometer('mspeedometer4', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 22,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "11:00 AM - 12:00 PM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer5 = new MSpeedometer('mspeedometer5', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 32,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "12:00 PM - 01:00 PM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer6 = new MSpeedometer('mspeedometer6', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 30,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "01:00 PM - 02:00 PM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer7 = new MSpeedometer('mspeedometer7', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 14,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "02:00 PM - 03:00 PM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer8 = new MSpeedometer('mspeedometer8', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 55,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "02:00 PM - 03:00 PM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer9= new MSpeedometer('mspeedometer9', {
+                    theme: 'manu',
+                    max : 180,
+                    end_point : 85,
+                    threshold:30,
+                    thresholdPivot:15,
+                    meterGapScale:10,
+                    meterTicksCount:18,
+                    meterMarksCount:4,
+                    titletext : "04:00 PM - 05:00 PM",
+                    titlex : 10,
+                    titley : 215
+                });
+                mspeedometer10= new MSpeedometer('mspeedometer10', {
+                    theme: 'manu',
+                    max : 1000,
+                    end_point : 556,
+                    threshold:300,
+                    thresholdPivot:150,
+                    meterGapScale:10,
+                    meterTicksCount:10,
+                    meterMarksCount:9,
+                    titletext : "08:00 AM - 05:00 PM",
+                    titlex : 80,
+                    titley : 355
+                });
+                mspeedometer1.draw();
+                incrementalUpdate(mspeedometer1);
+                mspeedometer2.draw();
+                incrementalUpdate(mspeedometer2);
+                mspeedometer3.draw();
+                incrementalUpdate(mspeedometer3);
+                mspeedometer4.draw();
+                incrementalUpdate(mspeedometer4);
+                mspeedometer5.draw();
+                incrementalUpdate(mspeedometer5);
+                mspeedometer6.draw();
+                incrementalUpdate(mspeedometer6);
+                mspeedometer7.draw();
+                incrementalUpdate(mspeedometer7);
+                mspeedometer8.draw();
+                incrementalUpdate(mspeedometer8);
+                mspeedometer9.draw();
+                incrementalUpdate(mspeedometer9);
+                mspeedometer10.draw();
+                incrementalUpdate(mspeedometer10);
+            });
+        </script>
+    </head>
+    <body>
+        <div style="width:392px;height:392px;">
+            <div id="mspeedometer10" class="mspeedometer" style="margin:auto;"></div>
+        </div>
+        <div style="width:756px;height:756px">
+            <div id="mspeedometer1" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer2" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer3" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer4" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer5" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer6" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer7" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer8" class="mspeedometer" style="width:200px;height:200px;"></div>
+            <div id="mspeedometer9" class="mspeedometer" style="width:200px;height:200px;"></div>
+        </div>
+    </body>
+</html>
