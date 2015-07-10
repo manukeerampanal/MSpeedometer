@@ -1,0 +1,20 @@
+MSpeedometer.themes.manu = {
+    dial        : '#4C7E9E',
+    rim         : '#256B96',
+    rimArc      : '#109618',
+    thresh      : '#CC3333',
+    center      : 'Black',
+    nose        : 'SlateGray',
+    hand        : 'Black',
+    handShine   : 'SlateGray',
+    handShineTo : 'Black',
+    ticks       : 'Black',
+    marks       : 'Black',
+    strings     : 'Black',
+    digits      : 'Black',
+    font        : 'Sans-Serif',
+    titlecolor  : 'red',
+    titlefont   : 'Sans-Serif',
+    titlesize   : '14pt',
+    titleweight : 'bold'
+}
