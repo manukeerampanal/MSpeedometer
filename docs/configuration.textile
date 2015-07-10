@@ -41,3 +41,5 @@ The second parameter passed to the constructor is an inline JavaScript object th
 * Boolean *display*: whether to enable the digital display or not - _default *true*_
 * String *theme*: see _doc/theming.txt_ for details
 * String *titletext*: Text for setting the title for the mspeedometer - _default *null*_
+* Integer *titlex*: x-axis for title text of the meter scale - _default *0*_
+* Integer *titley*: y-axis for title text of the meter scale - _default *0*_
