@@ -2,7 +2,8 @@ h1. API
 
 The mspeedometer currently has a very simple API, composed of few functions.
 
-h3. <code>new MSpeedometer (*element*, *options* = {})<code>
+h3. <code>new MSpeedometer (*element*, *options* = {})</code>
+
 _Description_: constructor
 _Purpose_: create a new mspeedometer instance
 _Parameters_:
@@ -12,6 +13,7 @@ _Returns_: Object - a new mspeedometer instance
 
 
 h3. <code>draw ()</code>
+
 _Description_: main drawing function
 _Purpose_: draw all the gauge components - background, meter, gloss, display, hand, texttitle
 _Parameters_: _none_
@@ -19,6 +21,7 @@ _Returns_: _nothing_
 
 
 h3. <code>update (*value*)</code>
+
 _Description_: update the mspeedometer instance to a new end_value, clipping to the configured maximum and minimum
 _Purpose_: set the current value, move the hand, update the display
 _Parameters_:
@@ -27,18 +30,21 @@ _Returns_: Integer - the end_value set
 
 
 h3. <code>value ()</code>
+
 _Description_: getter
 _Parameters_: _none_
 _Returns_: Integer - the current value of the mspeedometer instance
 
 
 h3. <code>min ()</code>
+
 _Description_: getter
 _Parameters_: _none_
 _Returns_: Integer - the minimum value of the mspeedometer instance
 
 
 h3. <code>max ()</code>
+
 _Description_: getter
 _Parameters_: _none_
 _Returns_: Integer - the maximum value of the mspeedometer instance
