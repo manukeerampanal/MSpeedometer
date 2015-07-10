@@ -1,0 +1,57 @@
+h2. Abstract
+
+Theming of the mspeedometer is carried out via theme objects defined into a separate javascript
+file, then included in the HTML source and then referenced in the constructor.
+
+The theme name is specified into the theme file, with the following scheme: <code>MSpeedometer.themes.NAME</code>.
+
+You can name your theme by using any allowed javascript variable name (e.g. letters, numbers, and underscores).
+
+*Example*:
+
+h3. <code>themes/mcust_theme.js.js</code>
+
+<pre><code>MSpeedometer.themes.mcust_theme = {
+  /* .... */
+}
+</code></pre>
+
+h3. <code>mspeedometer.html</code>
+
+<pre><code><script type="text/javascript" src="themes/mcust_theme.js"></script>
+<script type="text/javascript">
+  var mspeedometer = new MSpeedometer({ element: 'antani', theme: 'mcust_theme' });
+</script>
+</code></pre>
+
+h2. Default theme, name specification
+
+You can find the default theme into `themes/default.js`, and here follows:
+
+<pre><code>Speedometer.themes.default = {
+    dial       : 'Gray',
+    rim        : 'SlateGray',
+    rimArc     : 'Gainsboro',
+    thresh     : 'LawnGreen',
+    center     : 'Black',
+    nose       : 'SlateGray',
+    hand       : 'Black',
+    handShine  : 'SlateGray',
+    handShineTo: 'Black',
+    ticks      : 'Black',
+    marks      : 'Black',
+    strings    : 'Black',
+    digits     : 'Black',
+    font       : 'Sans-Serif',
+    titlecolor  : 'red',
+    titlefont   : 'Sans-Serif',
+    titlesize   : '14pt',
+    titleweight : 'bold'
+};
+</code></pre>
+
+h2. Contributing themes
+
+New themes are, of course, gladly accepted! You can send them to "me":http://github.com/manukeerampanal via message via github, using a "gist":http://gist.github.com, or even using "IP over Pigeon":http://en.wikipedia.org/wiki/IP_over_Avian_Carriers.
+
+Thanks in advance! :)
