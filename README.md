@@ -17,7 +17,7 @@ Original code shared in the public domain by &lt;anonymous&gt; on the 'net
 
 
 
-* Refactoring, object orientation and firefox quirks workarounds on xcanvas.js
-* Theming support
+* Some additional functionalities and some major bug fixes
+* Additional theming property
 * "Documentation":http://wiki.github.com/manukeerampanal/MSpeedometer
 
