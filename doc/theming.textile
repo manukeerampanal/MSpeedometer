@@ -9,7 +9,7 @@ You can name your theme by using any allowed javascript variable name (e.g. lett
 
 *Example*:
 
-h3. <code>themes/mcust_theme.js.js</code>
+h3. <code>themes/mcust_theme.js</code>
 
 <pre><code>MSpeedometer.themes.mcust_theme = {
   /* .... */
