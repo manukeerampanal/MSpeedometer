@@ -50,6 +50,8 @@ You can find the default theme into `themes/default.js`, and here follows:
 };
 </code></pre>
 
+!http://manu.co.in/mspeedometer/doc/theming.png!
+
 h2. Contributing themes
 
 New themes are, of course, gladly accepted! You can send them to "me":http://github.com/manukeerampanal via message via github, using a "gist":http://gist.github.com, or even using "IP over Pigeon":http://en.wikipedia.org/wiki/IP_over_Avian_Carriers.
