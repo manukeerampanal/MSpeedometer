@@ -43,3 +43,7 @@ The second parameter passed to the constructor is an inline JavaScript object th
 * String *titletext*: Text for setting the title for the mspeedometer - _default *null*_
 * Integer *titlex*: x-axis for title text of the meter scale - _default *0*_
 * Integer *titley*: y-axis for title text of the meter scale - _default *0*_
+
+h2. Components
+
+!http://manu.co.in/mspeedometer/doc/configuration.png!
