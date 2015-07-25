@@ -1,4 +1,4 @@
-# MSpeedometer
+# MSpeedometer - Version 1.x
 JavaScript plugin for Speedometer graph with canvas of html5.
 
 This is a simple speedometer widget implemented using the standard HTML5 Canvas APIs.
