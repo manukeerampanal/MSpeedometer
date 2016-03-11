@@ -9,14 +9,13 @@ function MSpeedometer(Element) {
   if (!Container) throw ('No container found!'); // XXX
   // Container CSS inspection to get computed size
   var ContainerStyle = TBE.GetElementComputedStyle (Container);
-  var Size = Math.min (
-    parseInt (ContainerStyle.width),
-    parseInt (ContainerStyle.height)
-  );
-  var SizeTitle = Math.min (
-    parseInt(ContainerStyle.width) + 25,
-    parseInt(ContainerStyle.height) + 25
-  );
+  var Size = {};
+  Size['width']=parseInt(ContainerStyle.width);
+  Size['height']=parseInt(ContainerStyle.height);
+  var SizeTitle = {};
+  SizeTitle['width']=parseInt(ContainerStyle.width);
+  SizeTitle['height']=parseInt(ContainerStyle.height)+25;
+  SizeTitle['position']='';
   if (!Size) throw ('Cannot get container dimensions!');
   // Customization
   var MinValue = options.min   || 0.0;
@@ -99,10 +98,10 @@ function MSpeedometer(Element) {
     titletext : TBE.GetElement2DContext (Canvas.titletext)
   };
   var Position = (function (o) {
-    this.x  = Size * 0.05;
-    this.y  = Size * 0.05;
-    this.w  = Size - this.x * 2;
-    this.h  = Size - this.y * 2;
+    this.x  = Size.width * 0.05;
+    this.y  = Size.height * 0.05;
+    this.w  = Size.width - this.x * 2;
+    this.h  = Size.height - this.y * 2;
     this.cx = this.w / 2 + this.x;
     this.cy = this.h / 2 + this.y;
     return this;
@@ -113,7 +112,7 @@ function MSpeedometer(Element) {
       element: Canvas.digits,
       placeholders: Color.dial,
       digits: Color.digits,
-      width: Size
+      width: Size.width
     });
   }
   // Now append the canvases into the given container
@@ -139,7 +138,7 @@ function MSpeedometer(Element) {
       this.drawHand ();
       this.drawTitle ();
       if (Display)
-        Display.drawNumber (CurValue, MaxValue.toString().length, Position.h / 1.2, Size / 9);
+        Display.drawNumber (CurValue, MaxValue.toString().length, Position.h / 1.2, Size.width / 9);
     }
   }
   ////////////////////
@@ -168,7 +167,7 @@ function MSpeedometer(Element) {
     if (Display)
     {
       Display.clear ();
-      Display.drawNumber (CurValue, MaxValue.toString().length, Position.h / 1.2, Size / 9);
+      Display.drawNumber (CurValue, MaxValue.toString().length, Position.h / 1.2, Size.width / 9);
     }
     return CurValue;
   }
@@ -304,8 +303,8 @@ function MSpeedometer(Element) {
   {
     var cx = Position.cx, cy = Position.cy;
     var context = Context.meter;
-    var gap = (Size * (MeterGapScale + 0.5) * 0.03);
-    var radius = (Size - gap) / 2 - gap * 5;
+    var gap = (Size.width * (MeterGapScale + 0.5) * 0.03);
+    var radius = (Size.width - gap) / 2 - gap * 5;
     var totalAngle = MeterToAngle - MeterFromAngle;
     var currentAngle, angleIncr;
     var incValue = (MaxValue - MinValue) / MeterTicksCount;
@@ -338,16 +337,16 @@ function MSpeedometer(Element) {
     {
       // Draw thick mark and increment angle
       drawMark (currentAngle, {
-        size: Size / 20,
-        width: Size / 50,
+        size: Size.width / 20,
+        width: Size.width / 50,
         color: Color.meter.ticks
       });
       // Draw string and increment ruler value
       drawString (MinValue + Math.round (incValue * i), {
         angle: currentAngle,
         color: Color.meter.strings,
-        offset: Size / 10,
-        size: Size / 23
+        offset: Size.width / 10,
+        size: Size.width / 23
       });
       currentAngle += angleIncr;
     }
@@ -359,7 +358,7 @@ function MSpeedometer(Element) {
     {
       // Draw thin mark if not overlapping a thick mark
       if (i % (MeterMarksCount + 1) != 0)
-        drawMark (currentAngle, {size: Size / 50, width: Size / 100, color: Color.meter.marks});
+        drawMark (currentAngle, {size: Size.width / 50, width: Size.width / 100, color: Color.meter.marks});
       currentAngle += angleIncr;
     }
     context.stroke ();
@@ -371,10 +370,10 @@ function MSpeedometer(Element) {
     var context = Context.foreground;
     // Draw dial glossiness
     //
-    var rX = Size * 0.15;
-    var rY = Position.y + Size * 0.07;
-    var rW = Size * 0.70;
-    var rH = Size * 0.65;
+    var rX = Size.width * 0.15;
+    var rY = Position.y + Size.height * 0.07;
+    var rW = Size.width * 0.70;
+    var rH = Size.height * 0.65;
     var g1 = context.createLinearGradient (0, 0, 0, rY+rH);
     g1.addColorStop (0, 'rgba(255,255,255,1.0)');
     g1.addColorStop (1, 'rgba(255,255,255, 0.0)');
@@ -384,10 +383,10 @@ function MSpeedometer(Element) {
       return;
     // Draw display glossiness
     //
-    rX = Size * 0.30;
-    rY = Position.y + Size * 0.70;
-    rW = Size * 0.40;
-    rH = Size * 0.15;
+    rX = Size.width * 0.30;
+    rY = Position.y + Size.width * 0.70;
+    rW = Size.width * 0.40;
+    rH = Size.height * 0.15;
     var g2 = context.createLinearGradient (0, rY, 0, rY + rH);
     g2.addColorStop (0, 'rgba(255,255,255,0.0)');
     g2.addColorStop (0.25, 'rgba(255,255,255,0.0)');
@@ -402,7 +401,7 @@ function MSpeedometer(Element) {
     var shift;
     if (CenterRimScale > 0 && CenterRimScale > CenterScale)
     {
-      shift = CenterRimScale * (Size / 2);
+      shift = CenterRimScale * (Size.width / 2);
       var rX = cx - (shift / 2);
       var rY = cy - (shift / 2);
       var rW = shift;
@@ -416,7 +415,7 @@ function MSpeedometer(Element) {
     }
     if (CenterScale > 0)
     {
-      shift = CenterScale * (Size / 2);
+      shift = CenterScale * (Size.width / 2);
       rX = cx - (shift / 2);
       rY = cy - (shift / 2);
       rW = shift;
@@ -433,7 +432,7 @@ function MSpeedometer(Element) {
   {
     var cx = Position.cx, cy = Position.cy;
     var context = Context.hand;
-    var radius = Size / 2 - (Size * 0.12);
+    var radius = Size.width / 2 - (Size.width * 0.12);
     var val = MaxValue - MinValue;
     val = (MaxValue * (CurValue - MinValue)) / val;
     val = ((MeterToAngle - MeterFromAngle) * val) / MaxValue;
@@ -447,13 +446,13 @@ function MSpeedometer(Element) {
     pts[4*2+0] = cx + radius * Math.cos (angle - 0.02);
     pts[4*2+1] = cy + radius * Math.sin (angle - 0.02);
     angle = TBE.Deg2Rad (val + 20);
-    pts[1*2+0] = cx + (Size * 0.09) * Math.cos (angle);
-    pts[1*2+1] = cy + (Size * 0.09) * Math.sin (angle);
+    pts[1*2+0] = cx + (Size.width * 0.09) * Math.cos (angle);
+    pts[1*2+1] = cy + (Size.width * 0.09) * Math.sin (angle);
     pts[2*2+0] = cx;
     pts[2*2+1] = cy;
     angle = TBE.Deg2Rad (val - 20);
-    pts[3*2+0] = cx + (Size * 0.09) * Math.cos (angle);
-    pts[3*2+1] = cy + (Size * 0.09) * Math.sin (angle);
+    pts[3*2+0] = cx + (Size.width * 0.09) * Math.cos (angle);
+    pts[3*2+1] = cy + (Size.width * 0.09) * Math.sin (angle);
     context.fillStyle = Color.hand.main;
     context.fillPolygon (pts);
     // Draw Shine
@@ -462,8 +461,8 @@ function MSpeedometer(Element) {
     pts[0*2+0] = cx + radius * Math.cos (angle);
     pts[0*2+1] = cy + radius * Math.sin (angle);
     angle = TBE.Deg2Rad (val + 20);
-    pts[1*2+0] = cx + (Size * 0.09) * Math.cos (angle);
-    pts[1*2+1] = cy + (Size * 0.09) * Math.sin (angle);
+    pts[1*2+0] = cx + (Size.width * 0.09) * Math.cos (angle);
+    pts[1*2+1] = cy + (Size.width * 0.09) * Math.sin (angle);
     pts[2*2+0] = cx;
     pts[2*2+1] = cy;
     var g1 = context.createLinearGradient (0, 0, cx, cy);
@@ -505,8 +504,8 @@ function MSpeedometer(Element) {
 
     // Draw Colored Rim
     context.strokeStyle = Color.rimArc;
-    context.lineWidth = Size / 40;
-    var gap = Size * 0.03;
+    context.lineWidth = Size.width / 40;
+    var gap = Size.width * 0.03;
 
     context.strokeBoxedArc (x + gap, y + gap, w - gap * 2, h - gap * 2,
                             TBE.Deg2Rad (MeterFromAngle), TBE.Deg2Rad (MeterRimAngle),
@@ -514,7 +513,7 @@ function MSpeedometer(Element) {
 
     // Draw Threshold
     context.strokeStyle = Color.thresh;
-    context.lineWidth = Size / 50;
+    context.lineWidth = Size.width / 50;
 
     var val = MaxValue - MinValue
     val = (MaxValue * (ThreshPivot - MinValue)) / val;
@@ -532,6 +531,14 @@ function MSpeedometer(Element) {
     context.strokeBoxedArc (x + gap, y + gap, w - gap * 2, h - gap * 2,
                             TBE.Deg2Rad (stAngle), TBE.Deg2Rad (sweepAngle),
                             /* counterclockwise = */ false);
+  }
+  this.destroy = function() {
+    var temp = Container.children;
+    var len=temp.length;
+    for (var i = (len); i > 0; i--) {
+      var t=i;
+      temp[i-1].parentNode.removeChild(temp[i-1]);
+    }
   }
 }; // End of class
 

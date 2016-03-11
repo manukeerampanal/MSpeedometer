@@ -1,20 +1,41 @@
 // TBE JS library - General utility methods
 //
 var TBE = {
-  CreateCanvasElement: function ()
+  CreateCanvasElement: function (position)
   {
     var canvas = document.createElement('canvas');
-    canvas.style.position = 'absolute';
+    canvas.style.position = position;
     return canvas;
   },
 
   CreateSquareCanvasElement: function (size)
   {
-    var canvas = TBE.CreateCanvasElement ();
-
-    canvas.setAttribute ('width', size);
-    canvas.setAttribute ('height', size);
-
+    var width = 0;
+    var height = 0;
+    var position = 'absolute';
+    if(typeof size == 'object') {
+      if(typeof size.width!='undefined') {
+        width=size.width;
+      } else if(typeof size[0]!='undefined') {
+        width=size[0];
+      }
+      if(typeof size.height!='undefined') {
+        height=size.height;
+      } else if(typeof size[1]!='undefined') {
+        height=size[1];
+      }
+      if(typeof size.position!='undefined') {
+        position=size.position;
+      } else if(typeof size[2]!='undefined') {
+        position=size[2];
+      }
+    } else if(typeof size == 'number' || typeof size == 'string'){
+      width = parseInt(size);
+      height = parseInt(size);
+    }
+    var canvas = TBE.CreateCanvasElement(position);
+    canvas.setAttribute ('width', width);
+    canvas.setAttribute ('height', height);
     return canvas;
   },
 
