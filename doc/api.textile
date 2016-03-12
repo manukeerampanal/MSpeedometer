@@ -2,49 +2,58 @@ h1. API
 
 The mspeedometer currently has a very simple API, composed of few functions.
 
-h3. <code>new MSpeedometer (*element*, *options* = {})</code>
+h3. <code>new MSpeedometer(element, options = {})</code>
 
-_Description_: constructor
-_Purpose_: create a new mspeedometer instance
-_Parameters_:
+_*Description*_: constructor
+_*Purpose*_: create a new mspeedometer instance
+_*Parameters*_:
 * String *element*: the DOM id of the mspeedometer container
 * Object *options*: an hash of options for configuration, as documented in doc/configuration.textile
-_Returns_: Object - a new mspeedometer instance
+ 
+_*Returns*_: Object - a new mspeedometer instance
 
 
-h3. <code>draw ()</code>
+h3. <code>draw()</code>
 
-_Description_: main drawing function
-_Purpose_: draw all the gauge components - background, meter, gloss, display, hand, texttitle
-_Parameters_: _none_
-_Returns_: _nothing_
+_*Description*_: main drawing function
+_*Purpose*_: draw all the gauge components - background, meter, gloss, display, hand, texttitle
+_*Parameters*_: none
+_*Returns*_: nothing
 
 
-h3. <code>update (*value*)</code>
+h3. <code>update(value)</code>
 
-_Description_: update the mspeedometer instance to a new end_value, clipping to the configured maximum and minimum
-_Purpose_: set the current value, move the hand, update the display
-_Parameters_:
+_*Description*_: update the mspeedometer instance to a new end_value, clipping to the configured maximum and minimum
+_*Purpose*_: set the current value, move the hand, update the display
+_*Parameters*_:
 * Integer *end_value*: the new end_value to set
-_Returns_: Integer - the end_value set
+ 
+_*Returns*_: Integer - the end_value set
 
 
-h3. <code>value ()</code>
+h3. <code>value()</code>
 
-_Description_: getter
-_Parameters_: _none_
-_Returns_: Integer - the current value of the mspeedometer instance
-
-
-h3. <code>min ()</code>
-
-_Description_: getter
-_Parameters_: _none_
-_Returns_: Integer - the minimum value of the mspeedometer instance
+_*Description*_: getter
+_*Parameters*_: none
+_*Returns*_: Integer - the current value of the mspeedometer instance
 
 
-h3. <code>max ()</code>
+h3. <code>min()</code>
 
-_Description_: getter
-_Parameters_: _none_
-_Returns_: Integer - the maximum value of the mspeedometer instance
+_*Description*_: getter
+_*Parameters*_: none
+_*Returns*_: Integer - the minimum value of the mspeedometer instance
+
+
+h3. <code>max()</code>
+
+_*Description*_: getter
+_*Parameters*_: none
+_*Returns*_: Integer - the maximum value of the mspeedometer instance
+
+
+h3. <code>destroy()</code>
+
+_*Description*_: destory the mspeedometer graph
+_*Parameters*_: none
+_*Returns*_: none
