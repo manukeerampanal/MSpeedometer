@@ -23,12 +23,12 @@ _*Returns*_: nothing
 
 h3. <code>update(value)</code>
 
-_*Description*_: update the mspeedometer instance to a new end_value, clipping to the configured maximum and minimum
+_*Description*_: update the mspeedometer instance with new end value
 _*Purpose*_: set the current value, move the hand, update the display
 _*Parameters*_:
 * Integer *end_value*: the new end_value to set
  
-_*Returns*_: Integer - the end_value set
+_*Returns*_: Integer - the end value set
 
 
 h3. <code>value()</code>
