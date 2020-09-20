@@ -12,7 +12,7 @@
         <script type="text/javascript" src="themes/mcust_theme.js"></script>
         <script type="text/javascript" src="cust_animation.js"></script>
         <script type="text/javascript">
-          var mspeedometer1,mspeedometer2,mspeedometer3,mspeedometer4,mspeedometer5;
+          var mspeedometer1,mspeedometer2,mspeedometer3,mspeedometer4,mspeedometer5,mspeedometer6,mspeedometer7,mspeedometer8,mspeedometer9,mspeedometer10,mspeedometer11;
             document.addEventListener ("DOMContentLoaded", function() {
                 document.removeEventListener ("DOMContentLoaded", arguments.callee, false);
                 mspeedometer1 = new MSpeedometer('mspeedometer1', {
@@ -145,6 +145,19 @@
                     titlex : 80,
                     titley : 355
                 });
+                mspeedometer11= new MSpeedometer('mspeedometer11', {
+                    theme: 'manu',
+                    max : 240,
+                    end_point : 30,
+                    threshold:60,
+                    thresholdPivot:210,
+                    meterGapScale:20,
+                    meterTicksCount:12,
+                    meterMarksCount:9,
+                    titletext : "Speed",
+                    titlex : 80,
+                    titley : 355
+                });
                 mspeedometer1.draw();
                 incrementalUpdate(mspeedometer1);
                 mspeedometer2.draw();
@@ -165,12 +178,26 @@
                 incrementalUpdate(mspeedometer9);
                 mspeedometer10.draw();
                 incrementalUpdate(mspeedometer10);
+                mspeedometer11.draw();
+                incrementalUpdate(mspeedometer11);
+				for(var i = 0; i < 500; i++) {
+					setTimeout(function(){ 
+						var value = randomNumber(1, 239);
+						console.log(value);
+						mspeedometer11.end_point(value);
+						incrementalUpdate(mspeedometer11);
+					}, i * 1500);
+				}
             });
+			function randomNumber(min, max) {  
+				return Math.floor(Math.random() * (max - min) + min); 
+			}
         </script>
     </head>
     <body>
-        <div style="width:392px;height:392px;">
-            <div id="mspeedometer10" class="mspeedometer" style="margin:auto;"></div>
+        <div style="width:784px;height:392px;">
+            <div id="mspeedometer10" class="mspeedometer" style="margin:auto;float:left;"></div>
+            <div id="mspeedometer11" class="mspeedometer" style="margin:auto;"></div>
         </div>
         <div style="width:756px;height:756px">
             <div id="mspeedometer1" class="mspeedometer" style="width:200px;height:200px;"></div>
